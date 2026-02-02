@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚨 СРОЧНАЯ ПЕТИЦИЯ 🚨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Аниме фон с облаками */
+        .anime-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, 
+                #1a2332 0%, 
+                #2d4b73 30%, 
+                #4a7ba7 60%, 
+                #87ceeb 100%);
+            z-index: 0;
+        }
+
+        .clouds {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 100px;
+            animation: float linear infinite;
+        }
+
+        .cloud::before,
+        .cloud::after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 100px;
+        }
+
+        .cloud:nth-child(1) {
+            width: 100px;
+            height: 40px;
+            top: 20%;
+            left: -10%;
+            animation-duration: 35s;
+        }
+
+        .cloud:nth-child(1)::before {
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 10px;
+        }
+
+        .cloud:nth-child(1)::after {
+            width: 60px;
+            height: 40px;
+            top: -15px;
+            right: 10px;
+        }
+
+        .cloud:nth-child(2) {
+            width: 150px;
+            height: 50px;
+            top: 40%;
+            left: -20%;
+            animation-duration: 45s;
+            animation-delay: -10s;
+        }
+
+        .cloud:nth-child(2)::before {
+            width: 70px;
+            height: 70px;
+            top: -35px;
+            left: 20px;
+        }
+
+        .cloud:nth-child(2)::after {
+            width: 80px;
+            height: 50px;
+            top: -20px;
+            right: 20px;
+        }
+
+        .cloud:nth-child(3) {
+            width: 120px;
+            height: 45px;
+            top: 60%;
+            left: -15%;
+            animation-duration: 40s;
+            animation-delay: -20s;
+        }
+
+        .cloud:nth-child(3)::before {
+            width: 60px;
+            height: 60px;
+            top: -30px;
+            left: 15px;
+        }
+
+        .cloud:nth-child(3)::after {
+            width: 70px;
+            height: 45px;
+            top: -18px;
+            right: 15px;
+        }
+
+        .cloud:nth-child(4) {
+            width: 130px;
+            height: 48px;
+            top: 15%;
+            left: -18%;
+            animation-duration: 50s;
+            animation-delay: -30s;
+        }
+
+        .cloud:nth-child(4)::before {
+            width: 65px;
+            height: 65px;
+            top: -32px;
+            left: 18px;
+        }
+
+        .cloud:nth-child(4)::after {
+            width: 75px;
+            height: 48px;
+            top: -19px;
+            right: 18px;
+        }
+
+        @keyframes float {
+            0% {
+                left: -20%;
+            }
+            100% {
+                left: 120%;
+            }
+        }
+
+        /* Звезды */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Полицейские мигалки */
+        .police-lights {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .light {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        .light.red {
+            background: #ff0000;
+            top: 10%;
+            right: 10%;
+            animation: pulse-red 0.8s ease-in-out infinite;
+        }
+
+        .light.blue {
+            background: #0066ff;
+            top: 10%;
+            left: 10%;
+            animation: pulse-blue 0.8s ease-in-out infinite;
+        }
+
+        .light.red2 {
+            background: #ff0000;
+            bottom: 10%;
+            left: 15%;
+            animation: pulse-red 0.8s ease-in-out infinite 0.4s;
+        }
+
+        .light.blue2 {
+            background: #0066ff;
+            bottom: 10%;
+            right: 15%;
+            animation: pulse-blue 0.8s ease-in-out infinite 0.4s;
+        }
+
+        @keyframes pulse-red {
+            0%, 100% { 
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1.3);
+            }
+        }
+
+        @keyframes pulse-blue {
+            0%, 100% { 
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 1;
+                transform: scale(1.3);
+            }
+        }
+
+        /* Сирена полоска сверху */
+        .siren-strip {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, 
+                #ff0000 0%, #ff0000 25%, 
+                #0066ff 25%, #0066ff 50%, 
+                #ff0000 50%, #ff0000 75%, 
+                #0066ff 75%, #0066ff 100%);
+            background-size: 200% 100%;
+            animation: siren-move 0.5s linear infinite;
+            z-index: 100;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+        }
+
+        @keyframes siren-move {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
+
+        /* Основной контейнер */
+        .container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            padding: 40px;
+            background: rgba(20, 20, 20, 0.92);
+            border-radius: 20px;
+            border: 3px solid #ff0000;
+            box-shadow: 
+                0 0 50px rgba(255, 0, 0, 0.5),
+                0 0 100px rgba(0, 102, 255, 0.3),
+                inset 0 0 30px rgba(255, 0, 0, 0.1);
+            animation: container-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes container-pulse {
+            0%, 100% { 
+                border-color: #ff0000;
+                box-shadow: 
+                    0 0 50px rgba(255, 0, 0, 0.5),
+                    0 0 100px rgba(0, 102, 255, 0.3);
+            }
+            50% { 
+                border-color: #0066ff;
+                box-shadow: 
+                    0 0 50px rgba(0, 102, 255, 0.5),
+                    0 0 100px rgba(255, 0, 0, 0.3);
+            }
+        }
+
+        /* Иконки сирены */
+        .siren-icons {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: rotate-siren 1s linear infinite;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .siren-icons:hover {
+            transform: scale(1.2);
+        }
+
+        @keyframes rotate-siren {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .spin {
+            animation: spin-fast 0.5s ease-in-out !important;
+        }
+
+        @keyframes spin-fast {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.5); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* Заголовок ALERT */
+        .alert-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 900;
+            letter-spacing: 8px;
+            color: #ff0000;
+            text-shadow: 
+                0 0 10px #ff0000,
+                0 0 20px #ff0000,
+                0 0 30px #ff0000,
+                2px 2px 4px rgba(0, 0, 0, 0.9);
+            animation: blink-text 0.8s ease-in-out infinite;
+            margin-bottom: 30px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        @keyframes blink-text {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .shake {
+            animation: shake-animation 0.5s;
+        }
+
+        @keyframes shake-animation {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+            20%, 40%, 60%, 80% { transform: translateX(10px); }
+        }
+
+        /* Текст петиции */
+        .petition-text {
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            font-weight: 900;
+            line-height: 1.5;
+            margin: 30px 0;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 
+                2px 2px 4px rgba(0, 0, 0, 0.9),
+                0 0 10px rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .petition-text .highlight {
+            color: #ff0000;
+            font-size: 1.2em;
+            text-shadow: 
+                0 0 10px #ff0000,
+                0 0 20px #ff0000;
+            animation: pulse-highlight 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-highlight {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: #ffd700;
+            margin-bottom: 40px;
+            text-shadow: 
+                0 0 10px #ffd700,
+                2px 2px 4px rgba(0, 0, 0, 0.8);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Кнопки */
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+
+        .btn {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 900;
+            padding: 20px 50px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-yes {
+            background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+            color: white;
+            border: 3px solid #ff3333;
+        }
+
+        .btn-yes:hover {
+            background: linear-gradient(135deg, #ff3333 0%, #ff0000 100%);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 12px 30px rgba(255, 0, 0, 0.5),
+                0 0 40px rgba(255, 0, 0, 0.3);
+        }
+
+        .btn-yes:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .btn-hell-yes {
+            background: linear-gradient(135deg, #0066ff 0%, #0044cc 100%);
+            color: white;
+            border: 3px solid #3388ff;
+        }
+
+        .btn-hell-yes:hover {
+            background: linear-gradient(135deg, #3388ff 0%, #0066ff 100%);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 12px 30px rgba(0, 102, 255, 0.5),
+                0 0 40px rgba(0, 102, 255, 0.3);
+        }
+
+        .btn-hell-yes:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        /* Счётчик голосов */
+        .counter {
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            border: 2px solid #ffd700;
+        }
+
+        .counter-title {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: #ffd700;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px #ffd700;
+        }
+
+        .counter-number {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 
+                0 0 20px #ffd700,
+                0 0 40px #ffd700,
+                2px 2px 8px rgba(0, 0, 0, 0.9);
+            animation: count-pulse 1s ease-in-out infinite;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        @keyframes count-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Индикатор подключения */
+        .connection-status {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            z-index: 101;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .connection-status.connected {
+            background: rgba(0, 200, 0, 0.9);
+            color: white;
+        }
+
+        .connection-status.disconnected {
+            background: rgba(200, 0, 0, 0.9);
+            color: white;
+        }
+
+        .connection-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: white;
+            animation: blink-dot 1s infinite;
+        }
+
+        @keyframes blink-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Статистика голосов */
+        .vote-stats {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 150px;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .stat-item.yes-votes {
+            background: rgba(255, 0, 0, 0.2);
+            border: 2px solid #ff0000;
+        }
+
+        .stat-item.no-votes {
+            background: rgba(0, 102, 255, 0.2);
+            border: 2px solid #0066ff;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-shadow: 0 0 10px currentColor;
+        }
+
+        .stat-percentage {
+            font-size: 1.2rem;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        /* Оверлей после голосования */
+        .voted-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .voted-text {
+            font-size: clamp(2rem, 8vw, 5rem);
+            font-weight: 900;
+            color: #ffd700;
+            text-shadow: 
+                0 0 20px #ffd700,
+                0 0 40px #ffd700,
+                0 0 60px #ffd700;
+            animation: voted-animation 2s ease-in-out;
+        }
+
+        @keyframes voted-animation {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Конфетти */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ff0000;
+            animation: confetti-fall 3s linear forwards;
+            z-index: 999;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                top: -10%;
+                opacity: 1;
+                transform: translateX(0) rotate(0deg);
+            }
+            100% {
+                top: 110%;
+                opacity: 0;
+                transform: translateX(calc(100vw * (var(--random) - 0.5))) rotate(720deg);
+            }
+        }
+
+        /* Мемная кнопка */
+        .meme-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            border: 3px solid #fff;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 101;
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.5);
+            transition: all 0.3s ease;
+            color: #000;
+        }
+
+        .meme-button:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 30px rgba(255, 215, 0, 0.7);
+        }
+
+        /* Мемный оверлей */
+        .meme-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .meme-text {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 900;
+            color: #fff;
+            text-align: center;
+            padding: 0 20px;
+            animation: rainbow-text 3s linear infinite;
+        }
+
+        @keyframes rainbow-text {
+            0% { color: #ff0000; }
+            16% { color: #ff7f00; }
+            33% { color: #ffff00; }
+            50% { color: #00ff00; }
+            66% { color: #0000ff; }
+            83% { color: #8b00ff; }
+            100% { color: #ff0000; }
+        }
+
+        .close-meme {
+            padding: 15px 40px;
+            background: #ff0000;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-meme:hover {
+            background: #cc0000;
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                max-width: 95%;
+            }
+            
+            .buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                padding: 15px 30px;
+            }
+
+            .vote-stats {
+                flex-direction: column;
+            }
+
+            .connection-status {
+                top: 10px;
+                right: 10px;
+                font-size: 0.8rem;
+                padding: 8px 15px;
+            }
+
+            .meme-button {
+                bottom: 10px;
+                left: 10px;
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Сирена полоска -->
+    <div class="siren-strip"></div>
+
+    <!-- Индикатор подключения -->
+    <div class="connection-status disconnected" id="connectionStatus">
+        <div class="connection-dot"></div>
+        <span id="statusText">Подключение...</span>
+    </div>
+
+    <!-- Аниме фон с облаками -->
+    <div class="anime-background"></div>
+    <div class="clouds">
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+        <div class="cloud"></div>
+    </div>
+    <div class="stars" id="stars"></div>
+
+    <!-- Полицейские мигалки -->
+    <div class="police-lights">
+        <div class="light red"></div>
+        <div class="light blue"></div>
+        <div class="light red2"></div>
+        <div class="light blue2"></div>
+    </div>
+
+    <!-- Основной контейнер -->
+    <div class="container">
+        <div class="siren-icons" id="sirenIcon">🚨</div>
+        
+        <h1 class="alert-title" id="alertTitle">🚨 СРОЧНАЯ ПЕТИЦИЯ 🚨</h1>
+        
+        <p class="petition-text">
+            Снять у <span class="highlight">ЛЕШИ ГОЛД ВАЙБА</span> вип или нет?
+        </p>
+        
+        <p class="subtitle">Ваш голос решает его судьбу! 🔥</p>
+        
+        <div class="buttons">
+            <button class="btn btn-yes" onclick="vote('yes')">
+                <span>✅ Да, Снять!</span>
+            </button>
+            <button class="btn btn-hell-yes" onclick="vote('no')">
+                <span>❌ Нет, Оставить!</span>
+            </button>
+        </div>
+        
+        <!-- Статистика голосов -->
+        <div class="vote-stats">
+            <div class="stat-item yes-votes">
+                <div class="stat-label">Снять ВИП 🔥</div>
+                <div class="stat-value" id="yesVotes">0</div>
+                <div class="stat-percentage" id="yesPercent">0%</div>
+            </div>
+            <div class="stat-item no-votes">
+                <div class="stat-label">Оставить ВИП 💎</div>
+                <div class="stat-value" id="noVotes">0</div>
+                <div class="stat-percentage" id="noPercent">0%</div>
+            </div>
+        </div>
+
+        <div class="counter">
+            <div class="counter-title">Всего проголосовало:</div>
+            <div class="counter-number" id="voteCount">0</div>
+        </div>
+    </div>
+
+    <!-- Мемная кнопка -->
+    <button class="meme-button" onclick="showMeme()">🎭 Мем Режим</button>
+
+    <!-- Оверлей после голосования -->
+    <div class="voted-overlay" id="votedOverlay">
+        <div class="voted-text">ГОЛОС ЗАСЧИТАН! 🔥</div>
+    </div>
+
+    <!-- Мемный оверлей -->
+    <div class="meme-overlay" id="memeOverlay">
+        <div class="meme-text" id="memeText">ЛЕША В ШОКЕ! 😱</div>
+        <button class="close-meme" onclick="closeMeme()">Закрыть</button>
+    </div>
+
+    <script>
+        // WebSocket переменные
+        let ws = null;
+        let reconnectInterval = null;
+        let hasVoted = false;
+        
+        // Данные голосования
+        let votingData = {
+            totalVotes: 0,
+            yesVotes: 0,
+            noVotes: 0
+        };
+
+        // Генерация звезд
+        function generateStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Подключение к WebSocket (симуляция для демо)
+        function connectWebSocket() {
+            // В реальном приложении здесь должен быть настоящий WebSocket сервер
+            // Для демонстрации используем локальное хранилище и события
+            
+            updateConnectionStatus('connected');
+            loadVotes();
+            
+            // Симуляция получения обновлений от других пользователей
+            window.addEventListener('storage', (e) => {
+                if (e.key === 'lesha_voting_data') {
+                    const data = JSON.parse(e.newValue || '{}');
+                    updateVotingDisplay(data);
+                }
+            });
+
+            // Проверка статуса каждые 30 секунд
+            setInterval(() => {
+                syncVotes();
+            }, 30000);
+        }
+
+        // Обновление статуса подключения
+        function updateConnectionStatus(status) {
+            const statusEl = document.getElementById('connectionStatus');
+            const statusText = document.getElementById('statusText');
+            
+            if (status === 'connected') {
+                statusEl.className = 'connection-status connected';
+                statusText.textContent = 'Online ⚡';
+            } else {
+                statusEl.className = 'connection-status disconnected';
+                statusText.textContent = 'Offline 💤';
+            }
+        }
+
+        // Загрузка голосов
+        function loadVotes() {
+            const saved = localStorage.getItem('lesha_voting_data');
+            if (saved) {
+                votingData = JSON.parse(saved);
+            } else {
+                votingData = { totalVotes: 0, yesVotes: 0, noVotes: 0 };
+            }
+            
+            const userVoted = localStorage.getItem('lesha_user_voted');
+            hasVoted = userVoted === 'true';
+            
+            updateVotingDisplay(votingData);
+        }
+
+        // Сохранение голосов
+        function saveVotes() {
+            localStorage.setItem('lesha_voting_data', JSON.stringify(votingData));
+        }
+
+        // Синхронизация голосов (для демо)
+        function syncVotes() {
+            const saved = localStorage.getItem('lesha_voting_data');
+            if (saved) {
+                const data = JSON.parse(saved);
+                if (data.totalVotes !== votingData.totalVotes) {
+                    votingData = data;
+                    updateVotingDisplay(votingData);
+                }
+            }
+        }
+
+        // Обновление отображения голосов
+        function updateVotingDisplay(data) {
+            votingData = data;
+            
+            document.getElementById('voteCount').textContent = data.totalVotes;
+            document.getElementById('yesVotes').textContent = data.yesVotes;
+            document.getElementById('noVotes').textContent = data.noVotes;
+            
+            const yesPercent = data.totalVotes > 0 
+                ? Math.round((data.yesVotes / data.totalVotes) * 100) 
+                : 0;
+            const noPercent = data.totalVotes > 0 
+                ? Math.round((data.noVotes / data.totalVotes) * 100) 
+                : 0;
+            
+            document.getElementById('yesPercent').textContent = yesPercent + '%';
+            document.getElementById('noPercent').textContent = noPercent + '%';
+        }
+
+        // Голосование
+        function vote(type) {
+            if (hasVoted) {
+                alert('❌ Вы уже проголосовали! Один человек = один голос!');
+                return;
+            }
+
+            hasVoted = true;
+            localStorage.setItem('lesha_user_voted', 'true');
+            
+            // Обновление данных
+            votingData.totalVotes++;
+            if (type === 'yes') {
+                votingData.yesVotes++;
+            } else {
+                votingData.noVotes++;
+            }
+            
+            // Сохранение и отображение
+            saveVotes();
+            updateVotingDisplay(votingData);
+            
+            // Эффекты
+            createConfetti(type);
+            playSiren();
+            
+            // Показ оверлея
+            const overlay = document.getElementById('votedOverlay');
+            overlay.style.display = 'flex';
+            
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 2000);
+
+            // Случайный мем после голосования
+            if (Math.random() > 0.5) {
+                setTimeout(() => {
+                    showRandomMeme();
+                }, 2500);
+            }
+        }
+
+        // Создание конфетти
+        function createConfetti(type) {
+            const colors = type === 'yes' 
+                ? ['#ff0000', '#ff3333', '#ff6666'] 
+                : ['#0066ff', '#3388ff', '#66aaff'];
+            
+            for (let i = 0; i < 80; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.width = (Math.random() * 15 + 5) + 'px';
+                    confetti.style.height = confetti.style.width;
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                    confetti.style.setProperty('--random', Math.random().toString());
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 20);
+            }
+        }
+
+        // Эмуляция сирены
+        function playSiren() {
+            const body = document.body;
+            let count = 0;
+            const colors = ['#1a0000', '#00001a', '#1a1a00'];
+            const interval = setInterval(() => {
+                body.style.filter = `hue-rotate(${count * 60}deg)`;
+                count++;
+                if (count > 8) {
+                    clearInterval(interval);
+                    body.style.filter = 'none';
+                }
+            }, 120);
+        }
+
+        // Показать мем
+        function showMeme() {
+            const memes = [
+                "ЛЕША В ШОКЕ! 😱",
+                "ВИП ЛЕТИТ В ПОМОЙКУ! 🗑️",
+                "ЗОЛОТОЙ ВИП? БОЛЬШЕ НЕТ! 💀",
+                "ЛЕША ПЛАЧЕТ! 😭",
+                "ВИП-СТАТУС = УДАЛЁН! ❌",
+                "ДЕМОКРАТИЯ ПОБЕДИЛА! 🎉",
+                "ЛЕША: \"НЕТ, ВЕРНИТЕ ВИП!\" 🙏",
+                "ОБЩИНА РЕШИЛА: ВИП СНЯТ! ⚖️"
+            ];
+            
+            const randomMeme = memes[Math.floor(Math.random() * memes.length)];
+            document.getElementById('memeText').textContent = randomMeme;
+            document.getElementById('memeOverlay').style.display = 'flex';
+        }
+
+        // Показать случайный мем после голосования
+        function showRandomMeme() {
+            showMeme();
+            setTimeout(() => {
+                closeMeme();
+            }, 3000);
+        }
+
+        // Закрыть мем
+        function closeMeme() {
+            document.getElementById('memeOverlay').style.display = 'none';
+        }
+
+        // Двойной клик на заголовок - тряска
+        document.getElementById('alertTitle').addEventListener('dblclick', () => {
+            document.body.classList.add('shake');
+            setTimeout(() => document.body.classList.remove('shake'), 500);
+        });
+
+        // Клик на сирену - спин
+        document.getElementById('sirenIcon').addEventListener('click', () => {
+            const siren = document.getElementById('sirenIcon');
+            siren.classList.add('spin');
+            setTimeout(() => siren.classList.remove('spin'), 500);
+        });
+
+        // Тройной клик на счётчик - фейерверк
+        let clickCount = 0;
+        let clickTimer;
+        document.getElementById('voteCount').addEventListener('click', () => {
+            clickCount++;
+            clearTimeout(clickTimer);
+            
+            if (clickCount === 3) {
+                for (let i = 0; i < 30; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = '50%';
+                    confetti.style.top = '50%';
+                    confetti.style.background = ['#ff0000', '#0066ff', '#ffd700'][Math.floor(Math.random() * 3)];
+                    confetti.style.width = '12px';
+                    confetti.style.height = '12px';
+                    confetti.style.setProperty('--random', (Math.random() - 0.5) * 2);
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 3000);
+                }
+                clickCount = 0;
+            }
+            
+            clickTimer = setTimeout(() => {
+                clickCount = 0;
+            }, 500);
+        });
+
+        // Случайная смена цвета огней
+        setInterval(() => {
+            if (Math.random() > 0.9) {
+                const lights = document.querySelectorAll('.light');
+                const randomColor = ['#ff0000', '#0066ff', '#00ff00', '#ffd700', '#ff00ff'][Math.floor(Math.random() * 5)];
+                lights.forEach(light => {
+                    light.style.background = randomColor;
+                });
+                setTimeout(() => {
+                    document.querySelectorAll('.light.red, .light.red2').forEach(l => l.style.background = '#ff0000');
+                    document.querySelectorAll('.light.blue, .light.blue2').forEach(l => l.style.background = '#0066ff');
+                }, 1000);
+            }
+        }, 4000);
+
+        // Инициализация
+        generateStars();
+        connectWebSocket();
+        
+        // Пасхалка: Konami Code
+        let konamiCode = [];
+        const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        
+        document.addEventListener('keydown', (e) => {
+            konamiCode.push(e.key);
+            konamiCode = konamiCode.slice(-10);
+            
+            if (konamiCode.join(',') === konamiSequence.join(',')) {
+                document.getElementById('memeText').textContent = '🎮 KONAMI CODE ACTIVATED! 🎮';
+                document.getElementById('memeOverlay').style.display = 'flex';
+                
+                // Супер конфетти
+                for (let i = 0; i < 200; i++) {
+                    setTimeout(() => {
+                        const confetti = document.createElement('div');
+                        confetti.className = 'confetti';
+                        confetti.style.left = Math.random() * 100 + 'vw';
+                        confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                        confetti.style.width = (Math.random() * 20 + 5) + 'px';
+                        confetti.style.height = confetti.style.width;
+                        confetti.style.setProperty('--random', (Math.random() - 0.5) * 3);
+                        document.body.appendChild(confetti);
+                        setTimeout(() => confetti.remove(), 4000);
+                    }, i * 15);
+                }
+                
+                konamiCode = [];
+            }
+        });
+    </script>
+</body>
+</html>
